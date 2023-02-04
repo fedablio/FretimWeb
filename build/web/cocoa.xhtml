@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Fretim Web</title>
+    </h:head>
+    <h:body style="font-size: 12px; background-color: lightgreen;">
+        <center>
+            <p:panel>
+                <p:panel>
+                    <h:form id="form2">
+                        <p:menubar>
+                            <p:submenu label="Menu" icon="ui-icon-transferthick-e-w">
+                                <p:menuitem value="Voltar" actionListener="#{vaiBean.p_banana()}"/>
+                            </p:submenu>
+                        </p:menubar>
+                    </h:form>
+                </p:panel>
+
+                <p:panel>
+                    <div style="font-size: 20px; color: orange; font-weight: bold; margin: 5px;">2. Corrida</div>
+                    <h:form id="form1">
+                        <p:dataTable id="dataTable1" var="c" value="#{corridaBean.listarTodas}" rowKey="#{c.id_corrida}" selection="#{corridaBean.corridaSelecionada}" widgetVar="widgetVar1" selectionMode="single" emptyMessage="Sem dados." paginator="true" rows="10" filteredValue="#{corridaBean.listarTodasFiltro}" rowsPerPageTemplate="20,50,100" style="width: 810px; height: auto;">
+
+                            <p:column headerText="Protocolo" filterBy="#{c.id_corrida}" sortBy="#{c.id_corrida}" filterMatchMode="exact" style="text-align: center;">
+                                <p:outputLabel value="#{c.id_corrida}"/>
+                            </p:column>
+
+                            <p:column headerText="ID" filterBy="#{c.id_motociclista}" sortBy="#{c.id_motociclista}" filterMatchMode="exact" style="text-align: center;">
+                                <p:outputLabel value="#{c.id_motociclista}"/>
+                            </p:column>
+
+                            <p:column headerText="Data" filterBy="#{c.data_corrida}" sortBy="#{c.data_corrida}" filterMatchMode="exact" style="text-align: center;">
+                                <p:outputLabel value="#{c.data_corrida}"/>
+                            </p:column>
+
+                            <p:column headerText="Hora" style="text-align: center;">
+                                <p:outputLabel value="#{c.hora_corrida}"/>
+                            </p:column>
+
+                            <p:column headerText="Valor (R$)" style="text-align: center;">
+                                <p:outputLabel value="#{c.valor_corrida}"/>
+                            </p:column>
+
+                            <p:ajax event="rowSelect" update="commandButton1" listener="#{corridaBean.onRowSelect(event)}" />
+                            <f:facet name="footer">
+                                <p:commandButton value="Detalhar" id="commandButton1" update=":form3:outputPanel3" oncomplete="PF('widgetVar3').show()" disabled="#{corridaBean.disabled1}" style="width: 300px; height: 30px;"/>
+                            </f:facet>
+                        </p:dataTable>
+                    </h:form>
+                </p:panel>
+
+                <h:form id="form3">
+                    <p:dialog header="Corrida - Detalhar" widgetVar="widgetVar3" modal="true" maximizable="true" closable="false">
+                        <p:outputPanel id="outputPanel3">
+                            <h:panelGrid columns="1">
+
+                                <h:outputText value="Protocolo: " style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.id_corrida}" style="color: black;"/>
+
+                                <h:outputText value="ID:" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.id_motociclista}" style="color: black;"/>
+
+                                <h:outputText value="Origem:" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.origem_corrida}" style="color: black;"/>
+
+                                <h:outputText value="Destino:" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.destino_corrida}" style="color: black;"/>
+
+                                <h:outputText value="Distância (Km):" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.distancia_corrida}" style="color: black;"/>
+
+                                <h:outputText value="Data:" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.data_corrida}" style="color: black;"/>
+
+                                <h:outputText value="Hora:" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.hora_corrida}" style="color: black;"/>
+
+                                <h:outputText value="Valor (R$):" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.valor_corrida}" style="color: black;"/>
+
+                                <h:outputText value="Latitude:" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.lat_corrida}" style="color: black;"/>
+
+                                <h:outputText value="Longitude:" style="font-weight: bold; color: red;"/>
+                                <p:outputLabel value="#{corridaBean.corridaSelecionada.lon_corrida}" style="color: black;"/>
+
+                            </h:panelGrid>
+                            <br/>
+                            <h:panelGrid columns="1">
+                                <p:commandButton value="Fechar" update=":form1 :form3" oncomplete="PF('widgetVar3').hide()" style="width: 300px; height: 30px;"/>
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+
+                <p:panel>
+                    <p:outputLabel value="#{vaiBean.versao}"/>
+                </p:panel>
+
+            </p:panel>
+        </center>
+    </h:body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Fretim Web</title>
+    </h:head>
+    <h:body style="font-size: 12px; background-color: lightgreen;">
+        <center>
+            <p:panel>
+                <p:panel>
+                    <h:form id="form2">
+                        <p:menubar>
+                            <p:submenu label="Menu" icon="ui-icon-transferthick-e-w">
+                                <p:menuitem value="Sair" actionListener="#{vaiBean.sair()}"/>
+                            </p:submenu>
+                        </p:menubar>
+                    </h:form>
+                </p:panel>
+
+                <p:panel>
+                    <h:form id="form1">
+                        <p:outputPanel id="outputPanel1">
+                            <h:panelGrid columns="2">
+                                <p:commandButton actionListener="#{vaiBean.p_cherry()}" disabled="#{principalBean.botaoMot}" value="1. Motociclista" style="width: 150px; height: 150px;"/>
+                                <p:commandButton actionListener="#{vaiBean.p_cocoa()}" disabled="#{principalBean.botaoCor}" value="2. Corrida" style="width: 150px; height: 150px;"/>
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </h:form>
+                </p:panel>
+
+                <p:panel>
+                    <p:outputLabel value="#{vaiBean.versao}"/>
+                </p:panel>
+
+            </p:panel>
+        </center>
+    </h:body>
+</html>

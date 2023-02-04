@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Fretim Web</title>
+    </h:head>
+    <h:body style="font-size: 12px; background-color: lightgreen;">
+        <center>
+            <p:panel>
+                <p:panel>
+                    <h:form id="form2">
+                        <p:menubar>
+                            <p:submenu label="Menu" icon="ui-icon-transferthick-e-w">
+                                <p:menuitem value="Voltar" actionListener="#{vaiBean.p_banana()}"/>
+                            </p:submenu>
+                        </p:menubar>
+                    </h:form>
+                </p:panel>
+
+                <p:panel>
+                    <div style="font-size: 20px; color: green; font-weight: bold; margin: 5px;">1. Motociclista</div>
+                    <h:form id="form1">
+                        <p:messages id="msg" />
+                        <p:outputPanel id="outputPanel1">
+                            <h:panelGrid columns="1">
+                                <p:inputText value="#{motociclistaBean.motociclista.id_motociclista}" maxlength="6" placeholder="ID motociclista/clientes (Ex.: FUL001)" style="width: 600px; height: 30px;"/>
+                                <p:inputText value="#{motociclistaBean.motociclista.user_motociclista}" type="password" maxlength="10" placeholder="User" style="width: 600px; height: 30px;"/>
+                                <p:inputText value="#{motociclistaBean.motociclista.pass_motociclista}" type="password" maxlength="10" placeholder="Pass" style="width: 600px; height: 30px;"/>
+                                <p:inputText value="#{motociclistaBean.motociclista.telefone_motociclista}" placeholder="Telefone (Ex.: 41999999999)" style="width: 600px; height: 30px;"/>
+                                <p:inputText value="#{motociclistaBean.motociclista.email_motociclista}" placeholder="E-mail (Ex.: fulano@dominio.com)" style="width: 600px; height: 30px;"/>
+                                <p:selectOneMenu value="#{motociclistaBean.motociclista.situacao_motociclista}" style="width: 608px; height: 30px;">
+                                    <f:selectItem itemLabel="Situação" itemValue="Situação" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="A" itemValue="A" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="D" itemValue="D" noSelectionOption="true" />
+                                </p:selectOneMenu>
+                                <p:inputText value="#{motociclistaBean.motociclista.logradouro_motociclista}" placeholder="Ex.: Rua Sete de Setembro" style="width: 600px; height: 30px;"/>
+                                <p:inputText value="#{motociclistaBean.motociclista.numero_motociclista}" placeholder="Ex.: 100" style="width: 600px; height: 30px;"/>
+                                <p:inputText value="#{motociclistaBean.motociclista.bairro_motociclista}" placeholder="Ex.: Rebouças" style="width: 600px; height: 30px;"/>
+                                <p:inputText value="#{motociclistaBean.motociclista.cidade_motociclista}" placeholder="Ex.: Curitiba" style="width: 600px; height: 30px;"/>
+                                <p:selectOneMenu value="#{motociclistaBean.motociclista.uf_motociclista}" style="width: 608px; height: 30px;">
+                                    <f:selectItem itemLabel="UF" itemValue="" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="AC" itemValue="AC" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="AL" itemValue="AL" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="AP" itemValue="AP" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="AM" itemValue="AM" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="BA" itemValue="BA" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="CE" itemValue="CE" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="DF" itemValue="DF" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="ES" itemValue="ES" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="GO" itemValue="GO" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="MA" itemValue="MA" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="MT" itemValue="MT" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="MS" itemValue="MS" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="MG" itemValue="MG" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="PA" itemValue="PA" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="PB" itemValue="PB" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="PR" itemValue="PR" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="PE" itemValue="PE" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="PI" itemValue="PI" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="RJ" itemValue="RJ" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="RN" itemValue="RN" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="RS" itemValue="RS" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="RO" itemValue="RO" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="RR" itemValue="RR" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="SC" itemValue="SC" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="SP" itemValue="SP" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="SE" itemValue="SE" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="TO" itemValue="TO" noSelectionOption="true" />
+                                </p:selectOneMenu>
+                                <p:inputText value="#{motociclistaBean.motociclista.precoquilo_motociclista}" placeholder="Ex.: 1.99" style="width: 600px; height: 30px;"/>
+                                <p:inputText value="#{motociclistaBean.motociclista.precomini_motociclista}" placeholder="Ex.: 5.99" style="width: 600px; height: 30px;"/>
+                                <h:panelGrid columns="2">
+                                    <p:commandButton actionListener="#{motociclistaBean.limpar()}" update=":form1 :form3" value="Limpar" style="width: 300px; height: 30px;"/>
+                                    <p:commandButton actionListener="#{motociclistaBean.salvar()}" update=":form1 :form3" value="Salvar" style="width: 300px; height: 30px;"/>
+                                </h:panelGrid>
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </h:form>
+
+                    <h:form id="form3">
+                        <p:dataTable id="dataTable1" var="m" value="#{motociclistaBean.listarTodos}" selection="#{motociclistaBean.motociclistaSelecionado}" rowKey="#{m.id_motociclista}" widgetVar="widgetVar1" selectionMode="single" emptyMessage="Sem dados." paginator="true" rows="10" filteredValue="#{motociclistaBean.listarTodosFiltro}" rowsPerPageTemplate="20,50,100" style="width: 810px; height: auto;">
+
+                            <p:column headerText="ID" filterBy="#{m.id_motociclista}" sortBy="#{m.id_motociclista}" filterMatchMode="exact" style="text-align: center; width: 100px;">
+                                <p:outputLabel value="#{m.id_motociclista}"/>
+                            </p:column>
+
+                            <p:column headerText="E-mail" filterBy="#{m.email_motociclista}" sortBy="#{m.email_motociclista}" filterMatchMode="exact" style="text-align: center; width: 100px;">
+                                <p:outputLabel value="#{m.email_motociclista}"/>
+                            </p:column>
+
+                            <p:column headerText="Telefone" filterBy="#{m.telefone_motociclista}" sortBy="#{m.telefone_motociclista}" filterMatchMode="exact" style="text-align: center; width: 100px;">
+                                <p:outputLabel value="#{m.telefone_motociclista}"/>
+                            </p:column>
+
+                            <p:column headerText="Situação" filterBy="#{m.situacao_motociclista}" sortBy="#{m.situacao_motociclista}" filterMatchMode="exact" style="text-align: center; width: 100px;">
+                                <p:outputLabel value="#{m.situacao_motociclista}"/>
+                            </p:column>
+
+                            <p:column headerText="Preço (Km)" filterBy="#{m.precoquilo_motociclista}" sortBy="#{m.precoquilo_motociclista}" filterMatchMode="exact" style="text-align: center; width: 100px;">
+                                <p:outputLabel value="#{m.precoquilo_motociclista}"/>
+                            </p:column>
+
+                            <p:column headerText="Preço (mínimo)" filterBy="#{m.precomini_motociclista}" sortBy="#{m.precomini_motociclista}" filterMatchMode="exact" style="text-align: center; width: 100px;">
+                                <p:outputLabel value="#{m.precomini_motociclista}"/>
+                            </p:column>
+
+                            <p:ajax event="rowSelect" update=":form1" listener="#{motociclistaBean.onRowSelect(event)}" />
+                        </p:dataTable>
+                    </h:form>
+                </p:panel>
+
+                <p:panel>
+                    <p:outputLabel value="#{vaiBean.versao}"/>
+                </p:panel>
+            </p:panel>
+        </center>
+    </h:body>
+</html>
